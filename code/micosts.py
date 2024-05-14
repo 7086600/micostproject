@@ -13,5 +13,25 @@ Data
  - csv-file which contents the dataset with: age,sex,bmi,children,smoker,region,charges
 '''
 
+import csv
 
+# inspect the contents of data
+
+# with open('data/insurance.csv', newline='') as ins:
+#     reader = csv.reader(ins)
+#     for row in reader:
+#         print(row)
+
+age, sex, bmi, children, smoker, region, charges = [], [], [], [], [], [], []
+
+with open('data/insurance.csv', newline='') as ins:
+    insDict = csv.DictReader(ins)
+    for row in insDict:
+        age.append(row['age'])
+        sex.append(row['sex'])
+        bmi.append(row['bmi'])
+        children.append(row['children'])
+        smoker.append(row['smoker'])
+        region.append(row['region'])
+        charges.append(row['charges'])
 
