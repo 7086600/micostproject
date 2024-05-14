@@ -16,22 +16,22 @@ Data
 import csv
 
 # inspect the contents of data
-
-# with open('data/insurance.csv', newline='') as ins:
-#     reader = csv.reader(ins)
-#     for row in reader:
-#         print(row)
-
-age, sex, bmi, children, smoker, region, charges = [], [], [], [], [], [], []
+ages, sexes, bmis, childrens, smokers, regions, chargeses = [], [], [], [], [], [], []
 
 with open('data/insurance.csv', newline='') as ins:
     insDict = csv.DictReader(ins)
     for row in insDict:
-        age.append(row['age'])
-        sex.append(row['sex'])
-        bmi.append(row['bmi'])
-        children.append(row['children'])
-        smoker.append(row['smoker'])
-        region.append(row['region'])
-        charges.append(row['charges'])
+        ages.append(row['age'])
+        sexes.append(row['sex'])
+        bmis.append(row['bmi'])
+        childrens.append(row['children'])
+        smokers.append(row['smoker'])
+        regions.append(row['region'])
+        chargeses.append(row['charges'])
 
+# calculate the average age
+sumAge = 0
+for age in ages:
+    sumAge += int(age)
+averageAge = sumAge / len(ages)
+print("the average age of the patients: {:.2f}".format(averageAge))
