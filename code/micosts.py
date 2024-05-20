@@ -29,9 +29,25 @@ with open('data/insurance.csv', newline='') as ins:
         regions.append(row['region'])
         chargeses.append(row['charges'])
 
-# calculate the average age
-sumAge = 0
-for age in ages:
-    sumAge += int(age)
-averageAge = sumAge / len(ages)
-print("the average age of the patients: {:.2f}".format(averageAge))
+
+# calculate the average
+def averageValue(values):
+    sumValues = 0
+    for value in values:
+        sumValues += float(value)
+    averageValue = sumValues / len(values)
+    return averageValue
+
+# print the average age
+print("the average age of the patients: {:.2f}".format(averageValue(ages)))
+
+
+# print the average charges
+print("the average insurance charges: {:.2f}".format(averageValue(chargeses)))
+
+uniqueRegions = []
+for region in regions:
+    if region not in uniqueRegions:
+        uniqueRegions.append(region)
+
+print("the regions are: {}".format(uniqueRegions))
