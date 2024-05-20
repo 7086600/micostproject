@@ -30,13 +30,14 @@ with open('data/insurance.csv', newline='') as ins:
         chargeses.append(row['charges'])
 
 
-# calculate the average
+# function: calculate the average
 def averageValue(values):
     sumValues = 0
     for value in values:
         sumValues += float(value)
     averageValue = sumValues / len(values)
     return averageValue
+
 
 # print the average age
 print("the average age of the patients: {:.2f}".format(averageValue(ages)))
@@ -45,9 +46,31 @@ print("the average age of the patients: {:.2f}".format(averageValue(ages)))
 # print the average charges
 print("the average insurance charges: {:.2f}".format(averageValue(chargeses)))
 
+
+
+
 uniqueRegions = []
 for region in regions:
     if region not in uniqueRegions:
         uniqueRegions.append(region)
 
 print("the regions are: {}".format(uniqueRegions))
+
+
+countRegions = {
+                uniqueRegions[0]:0,
+                uniqueRegions[1]:0,
+                uniqueRegions[2]:0,
+                uniqueRegions[3]:0
+                }
+for region in regions:
+    if region == uniqueRegions[0]:
+        countRegions[uniqueRegions[0]] += 1
+    if region == uniqueRegions[1]:
+        countRegions[uniqueRegions[1]] += 1
+    if region == uniqueRegions[2]:
+        countRegions[uniqueRegions[2]] += 1
+    if region == uniqueRegions[3]:
+        countRegions[uniqueRegions[3]] += 1
+
+print("the count of individuals are from: {}".format(countRegions))
