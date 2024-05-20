@@ -48,21 +48,19 @@ print("the average insurance charges: {:.2f}".format(averageValue(chargeses)))
 
 
 
-
+# Analyze where a majority of the individuals are from
+# Wich regions are there?
 uniqueRegions = []
 for region in regions:
     if region not in uniqueRegions:
         uniqueRegions.append(region)
-
-print("the regions are: {}".format(uniqueRegions))
-
-
+# Number of insured in each region
 countRegions = {
-                uniqueRegions[0]:0,
-                uniqueRegions[1]:0,
-                uniqueRegions[2]:0,
-                uniqueRegions[3]:0
-                }
+    uniqueRegions[0]:0,
+    uniqueRegions[1]:0,
+    uniqueRegions[2]:0,
+    uniqueRegions[3]:0
+    }
 for region in regions:
     if region == uniqueRegions[0]:
         countRegions[uniqueRegions[0]] += 1
@@ -74,3 +72,20 @@ for region in regions:
         countRegions[uniqueRegions[3]] += 1
 
 print("the count of individuals are from: {}".format(countRegions))
+
+# Look at the different costs between smokers vs. non-smokers.
+chargesAndSmoker = zip(chargeses, smokers)
+noSmokerCharges = []
+yesSmokerCharges = []
+for item in chargesAndSmoker:
+    if item[1] == 'no':
+        noSmokerCharges.append(item[0])
+    if item[1] == 'yes':
+        yesSmokerCharges.append(item[0])
+
+
+# print the average charges no smoker patient
+print("the no smoker patient average insurance charges: {:.2f}".format(averageValue(noSmokerCharges)))
+
+# print the average charges smoker patient
+print("the smoker patient average insurance charges: {:.2f}".format(averageValue(yesSmokerCharges)))
