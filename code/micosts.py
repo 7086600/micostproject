@@ -115,9 +115,36 @@ for item in chargesAndChildren:
     if int(item[1]) == 5:
         fiveChildrenCharges.append(item[0])
 
+print()
 print("Average charges for number of children 0: {:.2f}".format(averageValue(noChildrenCharges)))
 print("Average charges for number of children 1: {:.2f}".format(averageValue(oneChildCharges)))
 print("Average charges for number of children 2: {:.2f}".format(averageValue(twoChildrenCharges)))
 print("Average charges for number of children 3: {:.2f}".format(averageValue(threeChildrenCharges)))
 print("Average charges for number of children 4: {:.2f}".format(averageValue(fourChildrenCharges)))
 print("Average charges for number of children 5: {:.2f}".format(averageValue(fiveChildrenCharges)))
+
+
+# the average age of patients by children counts
+agesAndChildren = zip(ages, childrens)
+noChildrenPatients, oneChildPatients, twoChildrenPatients, threeChildrenPatients, fourChildrenPatients, fiveChildrenPatients = [], [], [], [], [], []
+for item in agesAndChildren:
+    if int(item[1]) == 0:
+        noChildrenPatients.append(item[0])
+    if int(item[1]) == 1:
+        oneChildPatients.append(item[0])
+    if int(item[1]) == 2:
+        twoChildrenPatients.append(item[0])
+    if int(item[1]) == 3:
+        threeChildrenPatients.append(item[0])
+    if int(item[1]) == 4:
+        fourChildrenPatients.append(item[0])
+    if int(item[1]) == 5:
+        fiveChildrenPatients.append(item[0])
+
+print()
+print("Average age for number of children 0: {:.2f}".format(averageValue(noChildrenPatients)))
+print("Average age for number of children 1: {:.2f}".format(averageValue(oneChildPatients)))
+print("Average age for number of children 2: {:.2f}".format(averageValue(twoChildrenPatients)))
+print("Average age for number of children 3: {:.2f}".format(averageValue(threeChildrenPatients)))
+print("Average age for number of children 4: {:.2f}".format(averageValue(fourChildrenPatients)))
+print("Average age for number of children 5: {:.2f}".format(averageValue(fiveChildrenPatients)))
