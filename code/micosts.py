@@ -89,3 +89,35 @@ print("the no smoker patient average insurance charges: {:.2f}".format(averageVa
 
 # print the average charges smoker patient
 print("the smoker patient average insurance charges: {:.2f}".format(averageValue(yesSmokerCharges)))
+
+'''
+uniqueCountChildren = []
+for count in childrens:
+    if count not in uniqueCountChildren:
+        uniqueCountChildren.append(count)
+print(uniqueCountChildren)
+'''
+
+# Look at the different costs by children counts
+chargesAndChildren = zip(chargeses, childrens)
+noChildrenCharges, oneChildCharges, twoChildrenCharges, threeChildrenCharges, fourChildrenCharges, fiveChildrenCharges = [], [], [], [], [], []
+for item in chargesAndChildren:
+    if int(item[1]) == 0:
+        noChildrenCharges.append(item[0])
+    if int(item[1]) == 1:
+        oneChildCharges.append(item[0])
+    if int(item[1]) == 2:
+        twoChildrenCharges.append(item[0])
+    if int(item[1]) == 3:
+        threeChildrenCharges.append(item[0])
+    if int(item[1]) == 4:
+        fourChildrenCharges.append(item[0])
+    if int(item[1]) == 5:
+        fiveChildrenCharges.append(item[0])
+
+print("Average charges for number of children 0: {:.2f}".format(averageValue(noChildrenCharges)))
+print("Average charges for number of children 1: {:.2f}".format(averageValue(oneChildCharges)))
+print("Average charges for number of children 2: {:.2f}".format(averageValue(twoChildrenCharges)))
+print("Average charges for number of children 3: {:.2f}".format(averageValue(threeChildrenCharges)))
+print("Average charges for number of children 4: {:.2f}".format(averageValue(fourChildrenCharges)))
+print("Average charges for number of children 5: {:.2f}".format(averageValue(fiveChildrenCharges)))
